@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link stylesheet="main.css" />
+    <title>Home Page</title>
+  </head>
+  <style>
+    .one {
+      width: fit-content;
+      padding: 20px;
+      background-color: green;
+      margin: 20px auto;
+      border-radius: 20px;
+      box-shadow: 10px 10px 10px black;
+      color: white;
+      transition: 0.5s ease-in-out;
+    }
+
+    .one:hover {
+      transform: scaleX(1.2);
+    }
+    .container {
+      margin-left: 100px;
+      margin-right: 100px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px 10px;
+      background-color: #eee;
+    }
+    .container .box {
+      height: 300px;
+      background-color: red;
+      color: white;
+      border-radius: 10px;
+      box-shadow: 10px 10px 10px black;
+      transition: 0.5s ease-in;
+    }
+    .box .title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .container .box h2 {
+      padding: 10px 0 10px 10px;
+    }
+    .container .box img {
+      width: 50px;
+      height: 50px;
+    }
+    .container .box:hover {
+      background-color: #aaa;
+    }
+    .container .box hr {
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+    .container .text {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100px;
+      padding: 10px;
+    }
+    .container .button {
+      text-align: center;
+    }
+    .container button {
+      padding: 10px 20px;
+      text-align: center;
+      border: none;
+      font-weight: bold;
+      border-radius: 3px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: 0.5s ease-in;
+      background-image: ;
+    }
+  </style>
+  <body>
+    <h1 class="one">Wlcome To This Channel</h1>
+    <div class="container">
+      <div class="box">
+        <div class="title">
+          <h2>Box</h2>
+          <img src="" alt="" />
+        </div>
+        <hr />
+        <div class="text">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </div>
+        <hr />
+        <div class="button">
+          <button>Submit</button>
+        </div>
+      </div>
+      <div class="box">
+        <div class="title">
+          <h2>Box</h2>
+          <img src="" alt="" />
+        </div>
+        <hr />
+        <div class="text">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </div>
+        <hr />
+        <div class="button">
+          <button>Submit</button>
+        </div>
+      </div>
+      <div class="box">
+        <div class="title">
+          <h2>Box</h2>
+          <img src="" alt="" />
+        </div>
+        <hr />
+        <div class="text">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </div>
+        <hr />
+        <div class="button">
+          <button>Submit</button>
+        </div>
+      </div>
+      <div class="box">
+        <div class="title">
+          <h2>Box</h2>
+          <img src="" alt="" />
+        </div>
+        <hr />
+        <div class="text">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </div>
+        <hr />
+        <div class="button">
+          <button>Submit</button>
+        </div>
+      </div>
+      <div class="box">
+        <div class="title">
+          <h2>Box</h2>
+          <img src="" alt="" />
+        </div>
+        <hr />
+        <div class="text">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </div>
+        <hr />
+        <div class="button">
+          <button>Submit</button>
+        </div>
+      </div>
+    </div>
+    <script>
+      let h_one = document.querySelector(".one");
+      h_one.style.backgroundColor = "red";
+      h_one.style.padding = "20px";
+      h_one.style.width = "fit-content";
+      h_one.style.color = "white";
+      h_one.style.margin = "10px auto";
+      h_one.style.borderRadius = "10px ";
+      h_one.style.boxShadow = "10px 10px 10px black ";
+
+      let h_two = function () {
+        let hOne = document.createElement("h1");
+        hOne.appendChild(document.createTextNode(h_one.innerHTML));
+        document.body.appendChild(hOne);
+        hOne.className = "one";
+      };
+
+      let inputSubmit = document.querySelectorAll("button");
+      let h_three = document.querySelectorAll(".box h2");
+      let paragraph = document.querySelectorAll(".box p");
+      let hr = document.querySelectorAll(".box hr");
+      console.log(inputSubmit.length);
+      let box = document.querySelectorAll(".box");
+      let count = 0;
+      let h_two_before = document.querySelectorAll("h2");
+      let image = document.querySelectorAll(".box .title img");
+      for (let i = 0; i < inputSubmit.length; i++) {
+        image[i].src = `/starter_files/car_${i + 1}.png`;
+        box[i].style.backgroundSize = "cover";
+        h_two_before[i].textContent = `Product ${i + 1}`;
+        console.log(i);
+        inputSubmit[i].onclick = function () {
+          count = count + 1;
+          inputSubmit[i].style.display = "none";
+          inputSubmit[i].style.transition = "0.5s ease-in";
+          box[i].style.backgroundColor = "green";
+          h_three[i].textContent = `Taken ${
+            count < 5 ? count : " All  "
+          } ELement`;
+          box[i].style.display = "flex";
+          box[i].style.justifyContent = "center";
+          box[i].style.alignItems = "center";
+          h_three[i].style.border = "3px solid black";
+          h_three[i].style.padding = "20px ";
+          h_three[i].style.borderRadius = "5px";
+          h_three[i].style.backgroundColor = "#eee";
+          h_three[i].style.color = "black";
+          h_three[i].style.boxShadow = "10px 10px 10px black";
+
+          paragraph[i].style.display = "none";
+          paragraph[i].style.width = "0px";
+          hr[i].style.display = "none";
+          hr[i].style.width = "0";
+          hr[i].style.hieght = "0";
+          box[i].style.transition = "0.5s ";
+          image[i].style.transform = "rotate(90deg) translateY(-50px)";
+          if (image[i].src === "/starter_files/car_1.png") {
+            image[i].style.width = "25px";
+            image[i].style.height = "25px";
+          } else {
+            image[i].style.width = "100px";
+            image[i].style.height = "100px";
+          }
+        };
+      }
+    </script>
+  </body>
+</html>
